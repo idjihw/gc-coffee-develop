@@ -1,6 +1,7 @@
 package com.example.gccoffee.model;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class Vocher {
     private String vocherName;
@@ -24,6 +25,13 @@ public class Vocher {
         this.expirationAt = expirationAt;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+    }
+
+    public Vocher(String vocherName, int discount) {
+        this.vocherName = vocherName;
+        this.discount = discount;
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
     }
 
     public String getVocherName() {

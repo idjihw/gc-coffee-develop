@@ -1,10 +1,48 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <title>Grids & Circles</title>
 </head>
-<body>
+<body class="container-fluid">
+<h1>Grids & Circles</h1>
+<h2>Voucher Management</h2>
+
+<form th:action="@{/vochers}" method="post">
+    <div class="mb-3">
+        <label for="vocherName" class="form-label">Name</label>
+        <input type="text" class="form-control" id="vocherName" name="vocherName">
+    </div>
+
+    <div class="mb-3">
+        <label for="discount" class="form-label">Discount</label>
+        <input type="number" class="form-control" id="discount" name="discount">
+    </div>
+
+    <div class="mb-3">
+
+        <label for="expirationAt" class="form-label">Expiration At</label>
+        <input type="text" class="form-control" id="expirationAt" name="expirationAt">
+
+
+        <!--
+        <label for="expirationAt" class="form-label">Expiration At</label>
+        <input type="datetime-local" id="expirationAt" class="form-control"
+               name="expirationAt" value="2018-06-12T19:30"
+               min="2018-06-07T00:00" max="2025-06-14T00:00">
+               -->
+
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
 
 </body>
 </html>

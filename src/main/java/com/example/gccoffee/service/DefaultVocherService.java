@@ -6,6 +6,7 @@ import com.example.gccoffee.repository.VocherRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.UUID;
 
@@ -27,6 +28,12 @@ public class DefaultVocherService implements VocherService{
     @Override
     public Vocher createVocher(String vocherName, int discount, LocalDateTime expirationAt) {
         var vocher = new Vocher(vocherName, discount, expirationAt);
+        return vocherRepository.insert(vocher);
+    }
+
+    @Override
+    public Vocher createVocher(String vocherName, int discount) {
+        var vocher = new Vocher(vocherName, discount);
         return vocherRepository.insert(vocher);
     }
 }

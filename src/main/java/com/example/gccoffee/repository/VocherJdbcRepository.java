@@ -35,7 +35,7 @@ public class VocherJdbcRepository implements VocherRepository{
     @Override
     public Vocher insert(Vocher vocher) {
         var update =  jdbcTemplate.update("INSERT INTO vochers(vocher_name, discount, expiration_at, created_at, updated_at)"+
-                " :vocherName, :discount, :expirationAt, :createdAt, :updatedAt)", toParamMap(vocher));
+                " VALUES (:vocherName, :discount, :expirationAt, :createdAt, :updatedAt)", toParamMap(vocher));
         if(update != 1){
             throw new RuntimeException("Nothing was inserted");
         }

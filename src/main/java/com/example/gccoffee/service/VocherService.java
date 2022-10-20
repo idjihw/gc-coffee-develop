@@ -11,5 +11,7 @@ public interface VocherService {
 
     List<Vocher> getAllVochers();
     Vocher createVocher(String vocherName, int discount, LocalDateTime expirationAt);
+    Vocher createVocher(String vocherName, int discount);
+
 
 }
