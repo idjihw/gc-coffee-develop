@@ -35,3 +35,12 @@ CREATE TABLE order_items
     CONSTRAINT fk_order_items_to_order FOREIGN KEY (order_id) REFERENCES orders (order_id) ON DELETE CASCADE,
     CONSTRAINT fk_order_items_to_product FOREIGN KEY (product_id) REFERENCES products (product_id)
 );
+
+CREATE TABLE vochers
+(
+    vocher_name     VARCHAR(50) PRIMARY KEY,
+    discount        int         NOT NULL,
+    expiration_at   datetime(6) DEFAULT NULL,
+    created_at      datetime(6) NOT NULL,
+    updated_at      datetime(6) DEFAULT NULL
+);
