@@ -27,6 +27,11 @@ public class ProductController {
         return "new-product";
     }
 
+    @GetMapping("update-product")
+    public String updateProductPage(){
+        return "update-product";
+    }
+
     @PostMapping("/products")
     public String newProduct(CreateProductRequest createProductRequest){
         productService.createProduct(
@@ -34,6 +39,17 @@ public class ProductController {
                 createProductRequest.category(),
                 createProductRequest.price(),
                 createProductRequest.description());
+        return "redirect:/products";
+    }
+
+    @PostMapping("/update")
+    public String updateProduct(UpdateProductRequest updateProductRequest){
+        productService.updateProduct(
+                updateProductRequest.productId(),
+                updateProductRequest.productName(),
+                updateProductRequest.category(),
+                updateProductRequest.price(),
+                updateProductRequest.description());
         return "redirect:/products";
     }
 }
