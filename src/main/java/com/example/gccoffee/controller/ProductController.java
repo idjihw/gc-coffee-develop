@@ -32,6 +32,11 @@ public class ProductController {
         return "update-product";
     }
 
+    @GetMapping("delete-product")
+    public String deleteProductPage(){
+        return "delete-product";
+    }
+
     @PostMapping("/products")
     public String newProduct(CreateProductRequest createProductRequest){
         productService.createProduct(
@@ -50,6 +55,14 @@ public class ProductController {
                 updateProductRequest.category(),
                 updateProductRequest.price(),
                 updateProductRequest.description());
+        return "redirect:/products";
+    }
+
+    @PostMapping("/delete")
+    public String deleteProduct(DeleteProductRequest deleteProductRequest){
+        productService.deleteProduct(
+                deleteProductRequest.productId()
+        );
         return "redirect:/products";
     }
 }

@@ -47,4 +47,9 @@ public class DefaultProductServiceImpl implements ProductService {
         var product = new Product(productId, productName, category, price, description, productRepository.findById(productId).get().getCreatedAt(), LocalDateTime.now());
         return productRepository.update(product);
     }
+
+    @Override
+    public void deleteProduct(UUID productId) {
+        productRepository.deleteById(productId);
+    }
 }

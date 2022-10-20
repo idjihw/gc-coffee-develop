@@ -85,6 +85,12 @@ public class ProductJdbcRepository implements ProductRepository {
         );
     }
 
+    public void deleteById(UUID productId) {
+        jdbcTemplate.update("DELETE FROM products WHERE product_id = UNHEX(REPLACE(:productId, '-', ''))",
+                Collections.singletonMap("productId", productId.toString().getBytes()) );
+        return;
+    }
+
     @Override
     public void deleteAll() {
         jdbcTemplate.update("DELETE FROM products", Collections.emptyMap());
